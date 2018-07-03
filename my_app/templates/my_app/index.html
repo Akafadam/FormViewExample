@@ -7,9 +7,10 @@
 	<h2>Introduce your email and password</h2>
 	<form method="post" action="">
 		{% csrf_token %}
-		{{form.email}}
+		{% for field in form %}
+		{{field}}
 		<br>
-		{{form.password}}
+		{% endfor %}
 		<input type="submit" value="Submit">
 	</form>
 </body>
