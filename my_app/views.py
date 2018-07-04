@@ -1,20 +1,18 @@
 from django.shortcuts import render
-from django.contrib.auth.forms import UserCreationForm
 from django.views.generic import FormView
 from .forms import LoginForm
-import imaplib
+from django.contrib.auth.forms import User
 
 class ContactView(FormView):
-	form_class = UserCreationForm
+	form_class = LoginForm
 	success_url = '/thanks/'
 	template_name = 'my_app/index.html'
 
 	def form_valid(self, form):
 		username = form.cleaned_data['username']
-		password = form.cleaned_data['password1']
-		# server = imaplib.IMAP4_SSL('imap.gmail.com')
-		# server.login(email, password)
-		user = authenticate(username=username, password=password)
-		login(request, user)
-
+		email = form.cleaned_data['email']
+		password = form.cleaned_data['password']
+		user = User.objects.create_user(username=username, email=email, 
+		password=password)
+		
 		return super(ContactView, self).form_valid(form)
