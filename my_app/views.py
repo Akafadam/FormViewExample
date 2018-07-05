@@ -4,15 +4,15 @@ from .forms import LoginForm
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import User, UserCreationForm
 
-class ContactView(FormView):
-	form_class = LoginForm
+class SignUpView(FormView):
+	form_class = UserCreationForm
 	success_url = '/thanks/'
-	template_name = 'my_app/index.html'
+	template_name = 'myapp/signup.html'
 
 	def form_valid(self, form):
 		username = form.cleaned_data['username']
 		password = form.cleaned_data['password1']
 		user = authenticate(username=username, password=password)
-		login(request, user)
+		login(self.request, user)
 
-		return super(ContactView, self).form_valid(form)
+		return super(SignUpView, self).form_valid(form)

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Signup template</title>
+	<meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <style>
+     a {
+      color:purple;
+     }
+     a:hover {
+      color:black;
+     }
+     label {
+      display:block;
+      text-align:left;
+      color:gray;
+      font-size:14px;
+     }
+
+   </style>
+</head>
+<body>
+  <div class="container-fluid bg-primary">
+	<h4 class="text-center p-5 mx-5 text-white">Have an account? Click <a href="/account/login/">here</a> to signin</h4>
+  </div>
+<form class="form-horizontal container py-2 pl-2 ml-5 my-5" method="POST">{% csrf_token %}
+  <fieldset>
+    <div id="legend">
+      <legend class="">Register</legend>
+    </div>
+ 
+    <div class="control-group w-25">
+      {% for field in form %}
+      {{field.label}} 
+      <br>
+      {{ field }}
+      <p></p>
+      {% endfor %}
+      <div class="controls">
+        <button class="btn btn-primary">Register</button>
+      </div>
+    </div>
+  </fieldset>
+</form>
+</body>
+</html>
