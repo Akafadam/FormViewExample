@@ -12,6 +12,7 @@ class ContactView(FormView):
 	def form_valid(self, form):
 		username = form.cleaned_data['username']
 		password = form.cleaned_data['password1']
-		user = authenticate(username=username, email=email, password=password)
+		user = authenticate(username=username, password=password)
 		login(request, user)
+
 		return super(ContactView, self).form_valid(form)
