@@ -2,10 +2,9 @@ from django.shortcuts import render
 from django.views.generic import FormView
 from .forms import LoginForm
 from django.contrib.auth import login, authenticate
-from django.contrib.auth.forms import User, UserCreationForm
 
 class SignUpView(FormView):
-	form_class = UserCreationForm
+	form_class = LoginForm
 	success_url = '/thanks/'
 	template_name = 'myapp/signup.html'
 
