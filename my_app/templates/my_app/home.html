@@ -2,12 +2,30 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    {% load staticfiles %}
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
 	<title>Welcome to MySite</title>
+	<style>
+		.logout {
+			background-color:#eee;
+			display:inline-block;
+			float:right;
+			margin-right:2%;
+		}
+	</style>
 </head>
 <body>
-	<h1>Home Page</h1>
+	<div class="container-fluid bg-primary">
+	<h1 class="text-white p-4">Home Page</h1>
+	</div>
 	<p></p>
 	<p></p>
-	<h4> Welcome, {{user.username}}, we're happy to have you.</h4>
+	<div class="container">
+	<h4 style="float:left;"> Welcome, {{user.username}}, we're happy to have you.</h4>
+	<a href="/account/login/" class="logout">Log out</a>
+	</div>
 </body>
 </html>

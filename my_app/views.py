@@ -6,7 +6,7 @@ from django.contrib.auth import login, authenticate
 class SignUpView(FormView):
 	form_class = SignUpForm
 	success_url = '/thanks/'
-	template_name = 'myapp/signup.html'
+	template_name = 'my_app/signup.html'
 
 	def form_valid(self, form):
 		form.save()
