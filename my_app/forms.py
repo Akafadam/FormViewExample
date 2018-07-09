@@ -11,10 +11,3 @@ class SignUpForm(UserCreationForm):
 		model = User
 		fields = ('first_name', 'last_name', 'username', 'email', 'password1', 'password2',)
 
-# class SigninForm(forms.ModelForm):
-# 	username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username'}))
-# 	password = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': 'Password'}))
-
-# 	class Meta:
-# 		model = User
-# 		fields = ('username', 'password',)

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import FormView
+from django.views.generic import FormView, TemplateView
 from .forms import SignUpForm
 from django.contrib.auth import login, authenticate
 
@@ -17,16 +17,7 @@ class SignUpView(FormView):
 
 		return super(SignUpView, self).form_valid(form)
 
-# class SigninView(FormView):
-# 	form_class = SigninForm
-# 	success_url = '/thanks/'
-# 	template_name = 'myapp/signin.html'
+class HomeView(TemplateView):
 
-# 	def form_valid(self, form):
-# 		# form.save()
-# 		username = form.cleaned_data['username']
-# 		password = form.cleaned_data['password']
-# 		user = authenticate(username=username, password=password)
-# 		login(self.request, user)
-
-# 		return super(SigninView, self).form_valid(form)
+	def get(self, request):
+		return render(request, self.template_name)
