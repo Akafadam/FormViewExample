@@ -101,6 +101,8 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+SESSION_COOKIE_AGE = 30
+
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.0/topics/i18n/
@@ -122,3 +124,9 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = "/account/profile/"
+
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'ricardojosechirinosduran@gmail.com'
+EMAIL_HOST_PASSWORD = '27420881'
+EMAIL_PORT = 587

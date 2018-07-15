@@ -6,6 +6,7 @@ class SignUpForm(UserCreationForm):
 	last_name = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Last name'}))
 	username = forms.CharField(widget=forms.TextInput(attrs={'placeholder': 'Username'}))
 	email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'Email address'}))
+	remember_me = forms.BooleanField(widget=forms.CheckboxInput())
 
 	class Meta:
 		model = User
